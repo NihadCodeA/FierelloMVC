@@ -1,0 +1,29 @@
+﻿@model Slider
+
+<form method="post" asp-action="create" enctype="multipart/form-data">
+     <div class="container-fluid">
+        <div class="row">
+            <div class="mb-3 col-3">
+                <label asp-for="FirstTitle" class="form-label">First title</label>
+                <input asp-for="FirstTitle" class="form-control" placeholder="FirstTitle">
+            </div>
+            <div class="mb-3 col-3">
+                <label asp-for="SecondTitle" class="form-label">SecondT title</label>
+                <input asp-for="SecondTitle" class="form-control" placeholder="SecondTitle" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-6">
+                <label asp-for="Description" class="form-label">Description</label>
+                <textarea style="height:150px" asp-for="Description" class="form-control" placeholder="Description"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-6">
+                <label asp-for="SliderImageFiles" class="form-label">SliderImageFiles</label>
+                <input multiple accept="image/png,jpg,jpeg" asp-for="SliderImageFiles" class="form-control" />
+            </div>
+        </div>
+     </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,35 @@
+﻿@model Product
+
+<form method="post" asp-action="update" enctype="multipart/form-data">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="mb-3 col-3">
+                <label asp-for="Name" class="form-label">Name</label>
+                <input asp-for="Name" class="form-control" placeholder="Name">
+                <span asp-validation-for="Name" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3 col-3">
+                <label asp-for="Price" class="form-label">Price</label>
+                <input asp-for="Price" type="number" class="form-control" placeholder="Price" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="CategoryId" class="form-label">Category</label>
+                <select class="form-control" asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories,"Id","Name"))"></select>
+                <span asp-validation-for="Category" class="text-danger"></span>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-6">
+                <label asp-for="ImgFile" class="form-label">SliderImageFile</label>
+                <input accept="image/png,jpg,jpeg" asp-for="ImgFile" class="form-control" />
+                <span asp-validation-for="ImgFile" class="text-danger"></span>
+                <img style="max-width:120px;max-height:150px;" src="~/uploads/products/@Model.ImgUrl"/>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
